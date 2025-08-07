@@ -1,0 +1,181 @@
+25-07-18 16:09:02.379 - INFO:   name: LoL_v2
+  use_tb_logger: True
+  model: MHFlow
+  distortion: sr
+  scale: 1
+  gpu_ids: [0]
+  dataset: LoL_v2
+  optimize_all_z: False
+  cond_encoder: ConEncoder1
+  train_gt_ratio: 0.5
+  avg_color_map: False
+  concat_histeq: False
+  histeq_as_input: False
+  concat_color_map: False
+  gray_map: False
+  align_condition_feature: False
+  align_weight: 0.001
+  align_maxpool: True
+  to_yuv: False
+  encode_color_map: False
+  le_curve: False
+  datasets:[
+    train:[
+      root: /home/linuxu/Desktop/Project/datasets/LOLv2 (copy)
+      quant: 32
+      use_shuffle: True
+      n_workers: 3
+      batch_size: 4
+      use_flip: True
+      color: RGB
+      use_crop: True
+      GT_size: 160
+      noise_prob: 0
+      noise_level: 5
+      log_low: False
+      phase: train
+      scale: 1
+      data_type: img
+    ]
+    val:[
+      root: /home/linuxu/Desktop/Project/datasets/LOLv2 (copy)
+      n_workers: 3
+      quant: 32
+      n_max: 20
+      batch_size: 1
+      log_low: False
+      phase: val
+      scale: 1
+      data_type: img
+    ]
+  ]
+  dataroot_unpaired: None
+  dataroot_GT: None
+  dataroot_LR: None
+  model_path: None
+  heat: 0
+  network_G:[
+    which_model_G: MHFlow
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    nb: 24
+    train_RRDB: True
+    train_RRDB_delay: 0.5
+    flow:[
+      K: 6
+      L: 3
+      noInitialInj: True
+      coupling: CondAffineSeparatedAndCond
+      additionalFlowNoAffine: 2
+      split:[
+        enable: False
+      ]
+      fea_up0: True
+      stackRRDB:[
+        blocks: [5]
+        concat: True
+      ]
+    ]
+    scale: 1
+  ]
+  path:[
+    root: ./
+    strict_load: True
+    resume_state: auto
+    experiments_root: ./experiments/LoL_v2
+    models: ./experiments/LoL_v2/models
+    training_state: ./experiments/LoL_v2/training_state
+    log: ./experiments/LoL_v2
+    val_images: ./experiments/LoL_v2/val_images
+  ]
+  train:[
+    manual_seed: 10
+    lr_G: 0.0002
+    weight_decay_G: 0
+    beta1: 0.9
+    beta2: 0.99
+    lr_scheme: MultiStepLR
+    warmup_iter: 500
+    lr_steps_rel: [0.25, 0.5, 0.7, 0.8]
+    lr_gamma: 0.5
+    weight_l1: 0
+    weight_fl: 1
+    niter: 40000
+    val_freq: 500
+    lr_steps: [10000, 20000, 28000, 32000]
+  ]
+  val:[
+    n_sample: 4
+  ]
+  test:[
+    heats: [0.0, 0.7, 0.8, 0.9]
+  ]
+  logger:[
+    print_freq: 100
+    save_checkpoint_freq: 10000.0
+  ]
+  is_train: True
+  dist: False
+
+25-07-18 16:09:02.414 - INFO: Random seed: 10
+25-07-18 16:09:05.015 - INFO: Model [MHFlowModel] is created.
+25-07-18 16:09:05.021 - INFO: Start training from epoch: 0, iter: 0
+25-07-18 19:30:40.658 - INFO: Saving models and training states.
+25-07-18 21:32:35.890 - INFO: # Validation # PSNR: 2.1323e+01 SSIM: 9.0865e-01
+25-07-18 21:32:35.891 - INFO: Saving best models
+25-07-18 21:44:01.411 - INFO: # Validation # PSNR: 2.4106e+01 SSIM: 9.3166e-01
+25-07-18 21:44:01.412 - INFO: Saving best models
+25-07-18 21:55:28.599 - INFO: # Validation # PSNR: 1.9708e+01 SSIM: 8.7448e-01
+25-07-18 22:06:55.433 - INFO: # Validation # PSNR: 2.1725e+01 SSIM: 9.1567e-01
+25-07-18 22:18:21.513 - INFO: # Validation # PSNR: 2.3182e+01 SSIM: 9.2402e-01
+25-07-18 22:29:49.202 - INFO: # Validation # PSNR: 2.3641e+01 SSIM: 9.3067e-01
+25-07-18 22:41:16.850 - INFO: # Validation # PSNR: 2.0678e+01 SSIM: 9.0393e-01
+25-07-18 22:52:45.729 - INFO: # Validation # PSNR: 2.1563e+01 SSIM: 9.1222e-01
+25-07-18 23:04:13.355 - INFO: # Validation # PSNR: 2.1266e+01 SSIM: 9.0714e-01
+25-07-18 23:04:13.356 - INFO: Saving models and training states.
+25-07-18 23:15:40.585 - INFO: # Validation # PSNR: 2.2422e+01 SSIM: 9.1964e-01
+25-07-18 23:27:06.437 - INFO: # Validation # PSNR: 2.1365e+01 SSIM: 9.1075e-01
+25-07-18 23:38:32.714 - INFO: # Validation # PSNR: 2.1124e+01 SSIM: 9.1159e-01
+25-07-18 23:50:02.381 - INFO: # Validation # PSNR: 2.1304e+01 SSIM: 9.1047e-01
+25-07-19 00:01:30.178 - INFO: # Validation # PSNR: 2.0137e+01 SSIM: 8.9762e-01
+25-07-19 00:12:58.495 - INFO: # Validation # PSNR: 2.0736e+01 SSIM: 9.0267e-01
+25-07-19 00:24:27.151 - INFO: # Validation # PSNR: 2.3289e+01 SSIM: 9.3104e-01
+25-07-19 00:35:54.656 - INFO: # Validation # PSNR: 2.1650e+01 SSIM: 9.1796e-01
+25-07-19 00:47:22.521 - INFO: # Validation # PSNR: 2.2163e+01 SSIM: 9.2228e-01
+25-07-19 00:58:50.304 - INFO: # Validation # PSNR: 2.2489e+01 SSIM: 9.2435e-01
+25-07-19 01:10:18.084 - INFO: # Validation # PSNR: 2.1715e+01 SSIM: 9.1241e-01
+25-07-19 01:21:46.103 - INFO: # Validation # PSNR: 2.1867e+01 SSIM: 9.1849e-01
+25-07-19 01:33:13.307 - INFO: # Validation # PSNR: 2.4709e+01 SSIM: 9.4011e-01
+25-07-19 01:33:13.307 - INFO: Saving best models
+25-07-19 01:44:39.545 - INFO: # Validation # PSNR: 2.2451e+01 SSIM: 9.2284e-01
+25-07-19 01:56:07.017 - INFO: # Validation # PSNR: 2.1565e+01 SSIM: 9.1103e-01
+25-07-19 02:07:33.938 - INFO: # Validation # PSNR: 2.0497e+01 SSIM: 9.0143e-01
+25-07-19 02:19:00.481 - INFO: # Validation # PSNR: 2.2520e+01 SSIM: 9.2608e-01
+25-07-19 02:30:28.018 - INFO: # Validation # PSNR: 2.2397e+01 SSIM: 9.2182e-01
+25-07-19 02:41:55.992 - INFO: # Validation # PSNR: 2.1473e+01 SSIM: 9.1454e-01
+25-07-19 02:53:25.137 - INFO: # Validation # PSNR: 2.1895e+01 SSIM: 9.1937e-01
+25-07-19 02:53:25.137 - INFO: Saving models and training states.
+25-07-19 03:04:51.874 - INFO: # Validation # PSNR: 2.1866e+01 SSIM: 9.1675e-01
+25-07-19 03:16:18.485 - INFO: # Validation # PSNR: 2.3417e+01 SSIM: 9.2938e-01
+25-07-19 03:27:44.772 - INFO: # Validation # PSNR: 2.2033e+01 SSIM: 9.1987e-01
+25-07-19 03:39:11.394 - INFO: # Validation # PSNR: 2.0964e+01 SSIM: 9.0843e-01
+25-07-19 03:50:39.810 - INFO: # Validation # PSNR: 2.2357e+01 SSIM: 9.2331e-01
+25-07-19 04:02:07.266 - INFO: # Validation # PSNR: 2.1745e+01 SSIM: 9.1628e-01
+25-07-19 04:13:45.355 - INFO: # Validation # PSNR: 2.1991e+01 SSIM: 9.1981e-01
+25-07-19 04:25:27.871 - INFO: # Validation # PSNR: 2.2833e+01 SSIM: 9.2518e-01
+25-07-19 04:36:56.572 - INFO: # Validation # PSNR: 2.1933e+01 SSIM: 9.1959e-01
+25-07-19 04:48:23.504 - INFO: # Validation # PSNR: 2.1545e+01 SSIM: 9.0981e-01
+25-07-19 04:59:49.914 - INFO: # Validation # PSNR: 2.1570e+01 SSIM: 9.1414e-01
+25-07-19 05:11:17.020 - INFO: # Validation # PSNR: 2.1552e+01 SSIM: 9.1268e-01
+25-07-19 05:22:43.722 - INFO: # Validation # PSNR: 2.1913e+01 SSIM: 9.1607e-01
+25-07-19 05:34:09.804 - INFO: # Validation # PSNR: 2.2247e+01 SSIM: 9.1667e-01
+25-07-19 05:45:35.422 - INFO: # Validation # PSNR: 2.1565e+01 SSIM: 9.1675e-01
+25-07-19 05:57:01.292 - INFO: # Validation # PSNR: 2.2787e+01 SSIM: 9.2390e-01
+25-07-19 06:08:27.263 - INFO: # Validation # PSNR: 2.1444e+01 SSIM: 9.1219e-01
+25-07-19 06:19:53.016 - INFO: # Validation # PSNR: 2.2285e+01 SSIM: 9.2146e-01
+25-07-19 06:31:18.715 - INFO: # Validation # PSNR: 2.2069e+01 SSIM: 9.2004e-01
+25-07-19 06:42:44.387 - INFO: # Validation # PSNR: 2.1622e+01 SSIM: 9.1251e-01
+25-07-19 06:42:44.387 - INFO: Saving models and training states.
+25-07-19 06:42:45.296 - INFO: Saving the final model.
+25-07-19 06:42:45.690 - INFO: End of training.
