@@ -2,18 +2,32 @@
 
 
 ## Introduction
-Our proposed method multiscale hybrid feature guided normalizing flow (MHFlow) is a novel and powerful generative model for low-light image enhancement. MHFlow can be trained using only NLL loss based on the estimation of the distribution. Extensive experiments on representative datasets show the superior performance of our method compared with current SOTA methods
+
+Low-light image enhancement (LLIE) remains a challenging task due to issues such as noise, detail loss, and uneven illumination. In this work, we propose a modular approach to improve enhancement performance by injecting structural priors into the **input** of MHFlow—a normalizing flow-based model—**without modifying the model architecture**.
+
+We investigate the effect of four types of input priors:
+- **Unbalanced Point Map**
+- **Illumination Map**
+- **Edge Map**
+- **Combined Prior (all three)**
+
+Our experiments on the LOL and LOL-v2 datasets show that while global metrics (PSNR, SSIM) remain on par with the baseline, the proposed priors consistently improve performance in challenging regions, as reflected by the **LRC-PSNR** metric.
+
+These findings highlight the potential of simple input-level guidance to improve model focus and suggest promising directions for future work:
+- Learning priors
+- Multi-prior integration
+- Unpaired training data
+
+---
 
 
 ## Datasets in our method
 
-- LOLv2 (Real & Synthetic): Please refer to the papaer [[From Fidelity to Perceptual Quality: A Semi-Supervised Approach for Low-Light Image Enhancement (CVPR 2020)]](https://github.com/flyywh/CVPR-2020-Semi-Low-Light).
+- LOL :link
 
-- MIT: Please refer to the papaer [[Learning Enriched Features for Real Image Restoration and Enhancement (ECCV 2020)]](https://github.com/swz30/MIRNet).
+- LOLv2 (Real & Synthetic): link
 
-- SMID: Please refer to the paper [[SNR-aware Low-Light Image Enhancement (CVPR 2022)]](https://github.com/dvlab-research/SNR-Aware-Low-Light-Enhance).
 
-- Unpaired datasets (DICM, LIME, MEF, NPE and VV) [[Google Drive]](https://drive.google.com/drive/folders/1lp6m5JE3kf3M66Dicbx5wSnvhxt90V4T).
 
 ## Training our method
 
@@ -33,7 +47,7 @@ python train.py --opt config path
 
 ### Pre-trained Models
 
-Please download our pre-trained models via the following links [[Baiduyun (extracted code: og8u)]](https://pan.baidu.com/s/1MRnlYSQNSc5ZjxtfvAU5Vw?pwd=og8u) [[Google Drive]](https://drive.google.com/drive/folders/1Rax5fKq9QQOTcw9ancNQ75DeKdZKuVya?usp=sharing).
+Please download our pre-trained models via the following links: link
 
 ### Run the testing code 
 
