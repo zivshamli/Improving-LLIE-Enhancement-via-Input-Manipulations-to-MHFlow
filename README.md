@@ -1,1 +1,1 @@
-# Improving-Low-Light-Image-Enhancement-via-Input-Manipulations-to-MHFlow
+# Improving-LLIE-Enhancement-via-Input-Manipulations-to-MHFlow
