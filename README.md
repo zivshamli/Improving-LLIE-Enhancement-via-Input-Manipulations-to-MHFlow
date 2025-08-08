@@ -47,7 +47,14 @@ python train.py --opt config yaml file path
 
 ### Pre-trained Models
 
-Please download our pre-trained models via the following links: link
+Download the pre-trained models here:  
+[https://drive.google.com/drive/folders/1u63uYdbadqQUzH3WBLKxeVfrhpG_2iNv?usp=sharing](https://drive.google.com/drive/folders/1u63uYdbadqQUzH3WBLKxeVfrhpG_2iNv?usp=sharing)
+
+> **Note:**
+> 1. First, choose the folder of the model that corresponds to the desired prior (Unbalanced Point Map, Illumination Map, Edge Map, or all maps).  
+> 2. Inside that folder, select the model that was trained on the dataset you want to evaluate with.
+
+
 
 ### Run the testing code 
 
