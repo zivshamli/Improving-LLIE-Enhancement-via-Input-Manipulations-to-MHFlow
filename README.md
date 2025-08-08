@@ -23,9 +23,9 @@ These findings highlight the potential of simple input-level guidance to improve
 
 ## Datasets in our method
 
-- LOL :link
+- LOL : [https://drive.google.com/drive/folders/1noCsfOZdCq14jp8FGdJ4-TqCgapLj35f?usp=sharing](https://drive.google.com/drive/folders/1noCsfOZdCq14jp8FGdJ4-TqCgapLj35f?usp=sharing)
 
-- LOLv2 (Real & Synthetic): link
+- LOLv2 (Real & Synthetic): [https://drive.google.com/drive/folders/1noCsfOZdCq14jp8FGdJ4-TqCgapLj35f?usp=sharing](https://drive.google.com/drive/folders/1noCsfOZdCq14jp8FGdJ4-TqCgapLj35f?usp=sharing)
 
 
 
@@ -40,7 +40,7 @@ Modify the related parameters (paths, loss weights, training steps, and etc.) in
 ### Train MHFlow
 
 ```bash
-python train.py --opt config path
+python train.py --opt config yaml file path
 ```
 
 ## Testing our method
