@@ -28,6 +28,14 @@ These findings highlight the potential of simple input-level guidance to improve
 - LOLv2 (Real & Synthetic): [https://drive.google.com/drive/folders/1noCsfOZdCq14jp8FGdJ4-TqCgapLj35f?usp=sharing](https://drive.google.com/drive/folders/1noCsfOZdCq14jp8FGdJ4-TqCgapLj35f?usp=sharing)
 
 
+## Hardware Requirements
+
+For optimal performance, we recommend running the training and testing on a GPU with:
+- **At least 8 GB of VRAM**
+- **CUDA support** enabled
+
+Running on CPU is possible but will be significantly slower.
+
 
 ## Training our method
 
@@ -62,6 +70,16 @@ You can test the model with paired data and obtain the evaluation metrics. You n
 ```bash
 python test.py
 ```
+---
+## References
+
+- Hu, C., Hu, Y., Xu, L., Cai, Z., Wu, F., Jing, X., & Lu, X. (2025). Multiscale hybrid feature guided normalizing flow for low-light image enhancement. *Computers and Electrical Engineering*, 122, 109922. [https://www.sciencedirect.com/science/article/abs/pii/S0045790624008486](https://www.sciencedirect.com/science/article/abs/pii/S0045790624008486)
+
+- Xu, L., Hu, C., Hu, Y., Jing, X., Cai, Z., & Lu, X. (2025). UPT-Flow: Multi-scale transformer-guided normalizing flow for low-light image enhancement. *Pattern Recognition*, 158, 111076. [https://www.sciencedirect.com/science/article/abs/pii/S0031320324008276?casa_token=IrqVBXpTT_YAAAAA:Jr_NQTVyyklmfDzNnwoNRirsMg2kjYg_8f1rgXZC6XGXukL-YSIWHb0trBRnPWqV9z7sJBaV5hA](https://www.sciencedirect.com/science/article/abs/pii/S0031320324008276?casa_token=IrqVBXpTT_YAAAAA:Jr_NQTVyyklmfDzNnwoNRirsMg2kjYg_8f1rgXZC6XGXukL-YSIWHb0trBRnPWqV9z7sJBaV5hA)
+
+- Guo, X., Li, Y., & Ling, H. (2016). LIME: Low-light image enhancement via illumination map estimation. *IEEE Transactions on Image Processing*, 26(2), 982–993. [https://ieeexplore.ieee.org/document/7782813](https://ieeexplore.ieee.org/document/7782813)
+
+
 
 
 ## Contact
