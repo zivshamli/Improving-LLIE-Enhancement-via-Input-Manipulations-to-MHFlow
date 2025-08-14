@@ -45,10 +45,25 @@ Modify the related parameters (paths, loss weights, training steps, and etc.) in
 ```bash
 ./conf/MHFlow.yml
 ```
+Before starting training, make sure to update the following parameters in your YAML file (e.g., `./conf/MHFlow.yml`):  
+
+**General settings**
+- **`name`** – Set a unique experiment name (will be used for saving logs and checkpoints).  
+- **`dataset`** – Change to the name of your dataset.  
+
+**Dataset paths**  
+- In section `datasets -> train -> root` – Set the path to your **training dataset**.  
+
+**Optional adjustments**
+- **`batch_size`** – Adjust according to GPU memory.  
+- **`n_workers`** – Number of workers for data loading (per GPU).  
+- **`GT_size`** – Crop size for training patches.  
+- **`gpu_ids`** – Choose the GPU(s) to use, e.g., `[0]` for a single GPU. 
+
 ### Train MHFlow
 
 ```bash
-python train.py --opt config yaml file path
+python3 train.py --opt config yaml file path
 ```
 
 ## Testing our method
@@ -68,7 +83,7 @@ Download the pre-trained models here:
 
 You can test the model with paired data and obtain the evaluation metrics. You need to specify the data path ```dataroot_LR```, ```dataroot_GT```, and model path ```model_path``` in the config file. Then run
 ```bash
-python test.py
+python3 test.py
 ```
 ---
 ## References
